@@ -17,7 +17,5 @@ git clone https://github.com/reezecodee/resep-menu-ramadhan.git
 ```
 
 ### 🎨 Kredit
-- Tampilan shadcn: <a href="https://github.com/faturputro/vue-shadcn-dashboard">https://github.com/faturputro/vue-shadcn-dashboard</a>
+- UI: <a href="https://github.com/faturputro/vue-shadcn-dashboard">https://github.com/faturputro/vue-shadcn-dashboard</a>
 
-### 📜 Lisensi
-MIT License © 2025 Resep Menu Ramadhan
