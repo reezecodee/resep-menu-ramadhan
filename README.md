@@ -6,7 +6,7 @@ Aplikasi web untuk menyajikan menu sahur dan berbuka setiap hari selama bulan Ra
 - ✅ Resep Detail – Setiap resep memiliki daftar bahan, langkah-langkah pembuatan, dan deskripsi opsional.
 
 ### 🛠️ Teknologi yang Digunakan
-- Frontend: Vue 3 + Pinia + Vite + shadcn-vue + Tailwind CSS
+- Frontend: Vue 3 + shadcn-vue + Tailwind CSS
 - Backend: Express.js (TypeScript)
 - Database: MongoDB (Mongoose)
 
