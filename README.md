@@ -15,7 +15,3 @@ Aplikasi web untuk menyajikan menu sahur dan berbuka setiap hari selama bulan Ra
 ```bash
 git clone https://github.com/reezecodee/resep-menu-ramadhan.git
 ```
-
-### 🎨 Kredit
-- UI: <a href="https://github.com/faturputro/vue-shadcn-dashboard">https://github.com/faturputro/vue-shadcn-dashboard</a>
-
