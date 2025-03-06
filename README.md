@@ -6,7 +6,7 @@ Aplikasi web untuk menyajikan menu sahur dan berbuka setiap hari selama bulan Ra
 - ✅ Resep Detail – Setiap resep memiliki daftar bahan, langkah-langkah pembuatan, dan deskripsi opsional.
 
 ### 🛠️ Teknologi yang Digunakan
-- Frontend: Vue 3 + Pinia + Vite + shadcn-vue + Tailwind CSS
+- Frontend: Vue 3 + shadcn-vue + Tailwind CSS
 - Backend: Express.js (TypeScript)
 - Database: MongoDB (Mongoose)
 
@@ -17,7 +17,5 @@ git clone https://github.com/reezecodee/resep-menu-ramadhan.git
 ```
 
 ### 🎨 Kredit
-- Tampilan shadcn: <a href="https://github.com/faturputro/vue-shadcn-dashboard">https://github.com/faturputro/vue-shadcn-dashboard</a>
+- UI: <a href="https://github.com/faturputro/vue-shadcn-dashboard">https://github.com/faturputro/vue-shadcn-dashboard</a>
 
-### 📜 Lisensi
-MIT License © 2025 Resep Menu Ramadhan
