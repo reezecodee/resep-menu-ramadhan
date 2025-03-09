@@ -9,18 +9,18 @@ export default [
       parser: typescriptParser,
       parserOptions: {
         ecmaVersion: 2020,
-        sourceType: 'module'
+        sourceType: 'module',
       },
     },
     plugins: {
       '@typescript-eslint': eslintPluginTypescript,
-      'prettier': eslintPluginPrettier
+      prettier: eslintPluginPrettier,
     },
     rules: {
       ...eslintPluginTypescript.configs.recommended.rules,
       '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      'prettier/prettier': 'error'
-    }
-  }
+      '@typescript-eslint/no-explicit-any': 'error',
+      'prettier/prettier': 'error',
+    },
+  },
 ];

@@ -10,7 +10,7 @@
     "lint": "eslint \"src/**/*.{js,ts}\" --quiet --fix",
     "format": "prettier --write '*/**/*.{js,ts,json}'"
   },
-  "type": "module",
+  "type": "commonjs",
   "keywords": [],
   "author": "Reeze",
   "license": "ISC",

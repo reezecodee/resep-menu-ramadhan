@@ -8,7 +8,7 @@
     "prepare": "husky"
   },
   "keywords": [],
-  "author": "",
+  "author": "Reeze",
   "license": "ISC",
   "lint-staged": {
     "server/**/*.{js,ts}": [
