@@ -15,6 +15,10 @@ class MenuService {
     return await menuRepository.findAll();
   }
 
+  async findMenuById(id: string) {
+    return await menuRepository.find(id);
+  }
+
   async deleteMenu(id: string) {
     return await menuRepository.delete(id);
   }

@@ -20,6 +20,7 @@ const stepSchema = new mongoose.Schema(
 
 const recipeSchema = new mongoose.Schema(
   {
+    day: { type: Number, required: true },
     name: { type: String, required: true },
     ingredients: { type: [ingredientSchema], required: true },
     steps: { type: [stepSchema], required: true },

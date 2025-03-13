@@ -11,6 +11,13 @@ class MenuRepository {
     return await Menu.find();
   }
 
+  async find(id: string) {
+    const menu = await Menu.findById(id).populate('sahur').populate('buka');
+    if (!menu) {
+      throw new Error('Menu not found');
+    }
+  }
+
   async delete(id: string) {
     const menu = await Menu.findByIdAndDelete(id);
     if (!menu) {

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const recipeSchema = z.object({
-  _id: z.string(),
+  day: z.number(),
   name: z.string().min(1, 'Nama resep tidak boleh kosong'),
   ingredients: z.array(
     z.object({
@@ -21,3 +21,5 @@ export const recipeSchema = z.object({
     errorMap: () => ({ message: 'Kategori harus Sahur atau Buka puasa' }),
   }),
 });
+
+export type RecipeInput = z.infer<typeof recipeSchema>;

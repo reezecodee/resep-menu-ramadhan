@@ -35,6 +35,16 @@ export const getMenus = async (req: Request, res: Response) => {
   });
 };
 
+export const findMenu = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const menu = await menuService.findMenuById(id);
+  res.status(200).json({
+    statusCode: 200,
+    message: 'success',
+    data: menu,
+  });
+};
+
 export const deleteMenu = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
