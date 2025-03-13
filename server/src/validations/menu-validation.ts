@@ -8,3 +8,5 @@ export const menuSchema = z.object({
   sahur: z.array(z.string().min(1, 'Harus berupa resep yang valid')).optional(),
   buka: z.array(z.string().min(1, 'Harus berupa resep yang valid')).optional(),
 });
+
+export type MenuInput = z.infer<typeof menuSchema>;
