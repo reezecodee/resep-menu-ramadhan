@@ -4,6 +4,7 @@ import { expect, describe, it } from '@jest/globals';
 describe('Recipe Schema Validation', () => {
   const validData = {
     _id: '65a12345abc67890def12345',
+    day: 1,
     name: 'Nasi Goreng',
     ingredients: [
       { name: 'Beras', quantity: '1 cup' },
