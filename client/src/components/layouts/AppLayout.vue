@@ -4,7 +4,7 @@ import Footer from '../footer/Footer.vue'
 
 <template>
     <div class="content">
-        <div class="p-16">
+        <div class="p-16 min-h-screen">
             <slot></slot>
         </div>
         <Footer />
