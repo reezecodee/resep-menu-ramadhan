@@ -4,7 +4,7 @@
 
 <template>
     <div class="flex justify-between items-center mb-10">
-        <div class="flex items-center">
+        <div class="flex items-center gap-3">
             <div>
                 <h2 class="text-2xl font-bold">Assalamualaikum, Budi</h2>
                 <p class="text-gray-600 text-xs font-semibold">20 April 2025, 10:01:00</p>
@@ -13,7 +13,7 @@
         </div>
         <button
             class="cursor-pointer bg-red-500 text-white text-xs font-bold px-4 py-2 border-4 border-black rounded-md shadow-[6px_6px_0px_#183153] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none">
-            Tambah Menu
+            Tambah Hari
         </button>
     </div>
     <div class="grid grid-cols-5 justify-items-start gap-x-4 gap-y-8">

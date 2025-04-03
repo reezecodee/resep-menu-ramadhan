@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import Footer from '../footer/Footer.vue'
 </script>
 
 <template>
@@ -7,13 +7,8 @@
         <div class="p-16">
             <slot></slot>
         </div>
-        <hr class="mt-5">
-        <div class="flex justify-center my-2">
-            <p class="text-sm font-semibold">Copyright © {{ new Date().getFullYear() }} Reeze. All rights reserved.</p>
-        </div>
+        <Footer />
     </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
