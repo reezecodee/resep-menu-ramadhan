@@ -1,5 +1,24 @@
 <script setup lang="ts">
+import { DateTime } from 'luxon';
+import { onMounted, ref } from 'vue';
 
+const date: string = DateTime.now().setLocale('id').toLocaleString(DateTime.DATE_HUGE);
+
+const time = ref('');
+
+function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    time.value = `${hours}:${minutes}:${seconds}`;
+}
+
+onMounted(() => {
+    updateTime();
+    setInterval(updateTime, 1000);
+});
 </script>
 
 <template>
@@ -7,7 +26,7 @@
         <div class="flex items-center gap-3">
             <div>
                 <h2 class="text-2xl font-bold">Assalamualaikum, Budi</h2>
-                <p class="text-gray-600 text-xs font-semibold">20 April 2025, 10:01:00</p>
+                <p class="text-gray-600 text-xs font-semibold">{{ date }}, {{ time }}</p>
             </div>
             <img src="/lantern.svg" width="60" alt="ppp" srcset="">
         </div>
