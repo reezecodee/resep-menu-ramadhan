@@ -11,10 +11,12 @@
             </div>
             <img src="/noodle.svg" width="60" alt="ppp" srcset="">
         </div>
-        <button
-            class="cursor-pointer bg-red-500 text-white text-xs font-bold px-4 py-2 border-4 border-black rounded-md shadow-[6px_6px_0px_#183153] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none">
-            Tambah Menu
-        </button>
+        <RouterLink to="/">
+            <button
+                class="cursor-pointer bg-red-500 text-white text-xs font-bold px-4 py-2 border-4 border-black rounded-md shadow-[6px_6px_0px_#183153] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none">
+                Tambah Menu
+            </button>
+        </RouterLink>
     </div>
     <div class="flex gap-x-[52px] w-full">
         <div class="cursor-pointer card-wrapper w-full">

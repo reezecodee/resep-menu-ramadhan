@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import AppLayout from './components/layouts/AppLayout.vue'
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 
 onMounted(() => {
+  // Initial animation when page loads
   animateGate();
 
+  // Add event listener for page refresh
   window.addEventListener('beforeunload', handleBeforeUnload);
 
+  // Check if page was refreshed
   const refreshTimestamp = sessionStorage.getItem('refreshTimestamp');
   if (refreshTimestamp) {
     animateGate();
@@ -17,8 +24,37 @@ onBeforeUnmount(() => {
   window.removeEventListener('beforeunload', handleBeforeUnload);
 });
 
+// Set up custom navigation guard for route changes
+router.beforeEach((to, from, next) => {
+  // Only run animation if actually changing routes
+  if (to.path !== from.path) {
+    document.body.classList.add('no-scroll');
+    const gateContainer = document.querySelector('.gate-container');
+    if (gateContainer) {
+      gateContainer.classList.add('gate-closed');
+      
+      // Delay navigation to allow animation to play
+      setTimeout(() => {
+        next();
+        
+        // After navigation completes, open gates again
+        nextTick(() => {
+          setTimeout(() => {
+            gateContainer.classList.remove('gate-closed');
+            document.body.classList.remove('no-scroll');
+          }, 100);
+        });
+      }, 1000);
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
 function handleBeforeUnload() {
-  sessionStorage.setItem('refreshTimestamp', Date.now());
+  sessionStorage.setItem('refreshTimestamp', Date.now().toString());
 }
 
 function animateGate() {
@@ -28,7 +64,12 @@ function animateGate() {
 
     setTimeout(() => {
       gateContainer.classList.remove('gate-closed');
-    }, 500);
+    }, 1400); 
+
+    document.body.classList.add('no-scroll');
+    setTimeout(() => {
+      document.body.classList.remove('no-scroll');
+    }, 1400);
   }
 }
 </script>
@@ -40,10 +81,9 @@ function animateGate() {
         <div class="relative">
           <div class="absolute translate-y-2 border-4 bg-[#183153] border-[#183153] rounded-xl w-52 h-full">
           </div>
-          <div
-            class="relative border-2 bg-white  border-[#183153] p-5 w-52 rounded-xl product-card">
+          <div class="relative border-2 bg-white border-[#183153] p-5 w-52 rounded-xl product-card">
             <div class="flex justify-center">
-              <img src="https://www.svgrepo.com/show/201354/chef.svg" width="100" alt="" srcset="">
+              <img src="https://www.svgrepo.com/show/201354/chef.svg" width="100" alt="Chef" />
             </div>
           </div>
         </div>
@@ -54,10 +94,9 @@ function animateGate() {
         <div class="relative">
           <div class="absolute translate-y-2 border-4 bg-[#183153] border-[#183153] rounded-xl w-52 h-full">
           </div>
-          <div
-            class="relative border-2 bg-white  border-[#183153] p-5 w-52 rounded-xl product-card">
+          <div class="relative border-2 bg-white border-[#183153] p-5 w-52 rounded-xl product-card">
             <div class="flex justify-center">
-              <img src="https://www.svgrepo.com/show/429379/bowl-food-noodle.svg" width="100" alt="" srcset="">
+              <img src="https://www.svgrepo.com/show/429379/bowl-food-noodle.svg" width="100" alt="Food" />
             </div>
           </div>
         </div>
@@ -65,7 +104,9 @@ function animateGate() {
     </div>
 
     <AppLayout>
-      <RouterView />
+      <RouterView v-slot="{ Component }">
+        <component :is="Component" />
+      </RouterView>
     </AppLayout>
   </div>
 </template>
@@ -80,13 +121,13 @@ function animateGate() {
 
 .gate-left,
 .gate-right {
-  position: absolute;
+  position: fixed;
   width: 50%;
   height: 100%;
   background-color: #FFD43B;
   top: 0;
-  transition: transform 0.7s ease-in-out;
-  z-index: 10;
+  transition: transform 1s ease-in-out;
+  z-index: 100;
 }
 
 .gate-left {
@@ -112,5 +153,9 @@ function animateGate() {
   z-index: 1;
   width: 100%;
   height: 100%;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 </style>

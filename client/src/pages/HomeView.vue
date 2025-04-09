@@ -37,6 +37,7 @@ onMounted(() => {
     </div>
     <div class="grid grid-cols-5 justify-items-start gap-x-4 gap-y-8">
         <div v-for="n in 30" class="cursor-pointer card-wrapper">
+            <RouterLink to="/menu">
             <div class="group relative transition-all duration-300 hover:translate-x-[3px] hover:translate-y-[3px]">
                 <div
                     class="absolute translate-y-1 border-4 bg-[#183153] border-[#183153] rounded-xl w-52 h-full shadow-[6px_6px_0px_#183153] group-hover:shadow-none transition-all duration-300">
@@ -51,6 +52,7 @@ onMounted(() => {
                     </p>
                 </div>
             </div>
+            </RouterLink>
         </div>
     </div>
 </template>
